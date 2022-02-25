@@ -66,7 +66,9 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public MessageDto getMessageById(int id) {
-        return mapper.map(messageRepository.findById(id),MessageDto.class);
+        Message message = messageRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Message","ID",id));
+        return mapper.map(message,MessageDto.class);
     }
 
     @Override

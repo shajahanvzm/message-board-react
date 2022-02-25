@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1.0/messages")
 public class MessageController {
@@ -18,12 +20,12 @@ public class MessageController {
     }
 
     @PostMapping
-    public ResponseEntity<MessageDto> save(@RequestBody MessageDto messageDto){
+    public ResponseEntity<MessageDto> save(@Valid @RequestBody MessageDto messageDto){
         return new ResponseEntity<>(messageService.save(messageDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MessageDto> update(@PathVariable int id, @RequestBody MessageDto messageDto){
+    public ResponseEntity<MessageDto> update(@PathVariable int id, @Valid @RequestBody MessageDto messageDto){
         return new ResponseEntity<>(messageService.update(id, messageDto), HttpStatus.OK);
     }
 
