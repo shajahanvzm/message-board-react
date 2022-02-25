@@ -1,6 +1,6 @@
 import axios from "axios";
-const MESSAGE_API_URL = 'http://localhost:8080/api/v1.0/messages'
-
+//const MESSAGE_API_URL = 'http://localhost:8080/api/v1.0/messages'
+const MESSAGE_API_URL = '/api/v1.0/messages'
 class MessageService{
 
     getAllMessages(){
