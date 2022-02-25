@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1.0/messages")
+@CrossOrigin(value = "http://localhost:3000/")
 public class MessageController {
 
     private final MessageService messageService;
