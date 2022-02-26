@@ -1,15 +1,25 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+} from "react-router-dom";
 import './App.css';
+import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/HeaderComponent';
 import MessageComponent from './components/message/MessageComponent'
-import FormikComponent from './components/message/FormikComponent'
+
 
 function App() {
   return (
-    <div >
-      <h3>React Message Board </h3>
-      {/* <FormikComponent /> */}
-       <MessageComponent /> 
-    </div>
+    <Router>
+      <HeaderComponent />
+      <Routes>
+        <Route path="/" element={<MessageComponent />} />
+      </Routes>
+      <FooterComponent />
+    </Router>
+
   );
 }
 
